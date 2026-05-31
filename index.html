@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Сармат Пульт</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="crt-overlay"></div>
+  <div class="grid"></div>
+
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-satellite-dish"></i> САРМАТ <span>ПУЛЬТ СВЯЗИ</span></h1>
+      <div class="status offline" id="connectionStatus">СИСТЕМА ОФФЛАЙН</div>
+    </div>
+
+    <!-- Панель входа -->
+    <div id="loginPanel" class="login-panel">
+      <h2><i class="fas fa-shield-alt"></i> АВТОРИЗАЦИЯ</h2>
+      <div class="form-group">
+        <input type="email" id="email" placeholder="EMAIL АДРЕС" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" placeholder="ПАРОЛЬ СВЯЗИ" autocomplete="current-password">
+      </div>
+      <button id="loginBtn" class="cta-button">ПОДКЛЮЧИТЬСЯ</button>
+      <div id="loginError" class="error"></div>
+    </div>
+
+    <!-- Главная панель -->
+    <div id="mainPanel" style="display: none;">
+      <!-- Переключатель активности пульта -->
+      <div class="toggle-container">
+        <button id="toggleShortcutsBtn" class="toggle-btn active-mode">
+          <i class="fas fa-toggle-on"></i> ПУЛЬТ АКТИВЕН (БИНДЫ ВКЛ)
+        </button>
+      </div>
+
+      <div class="content-layout">
+        <div class="info-block">
+          <div class="info-row">
+            <span class="label"><i class="fas fa-user-secret"></i> БОЕЦ:</span>
+            <span class="value" id="userCallsign">---</span>
+          </div>
+          <div class="info-row">
+            <span class="label"><i class="fas fa-broadcast-tower"></i> ЧАСТОТА:</span>
+            <span class="value highlight-blue" id="currentFreq">---</span>
+          </div>
+          <div class="info-row">
+            <span class="label"><i class="fas fa-microphone"></i> СТАТУС PTT:</span>
+            <span class="value highlight-red" id="pttMode">Рация выключена на сайте</span>
+          </div>
+          <button id="logoutBtn" class="cta-button secondary">ОТКЛЮЧИТЬ ПУЛЬТ</button>
+        </div>
+
+        <div class="log-block">
+          <h3>ЖУРНАЛ ТЕРМИНАЛА</h3>
+          <div id="logList"></div>
+        </div>
+      </div>
+
+      <!-- Настройки хоткеев -->
+      <div class="hotkeys-config">
+        <h3><i class="fas fa-sliders-h"></i> ТАКТИЧЕСКИЕ НАСТРОЙКИ</h3>
+        
+        <div class="setting-row">
+          <span class="setting-label">КНОПКА PTT (УДЕРЖАНИЕ):</span>
+          <button id="recordHotkeyBtn" class="record-btn">ЗАПИСАТЬ ХОТКЕЙ</button>
+          <span id="currentHotkeyLabel" class="hotkey-display">Ctrl+Space</span>
+        </div>
+
+        <div class="setting-row">
+          <span class="setting-label">РЕЖИМ PTT:</span>
+          <select id="pttModeSelect" class="tech-select">
+            <option value="hold">УДЕРЖАНИЕ (HOLD)</option>
+            <option value="toggle">ПЕРЕКЛЮЧАТЕЛЬ (TOGGLE)</option>
+          </select>
+        </div>
+
+        <div class="help-section">
+          <p><i class="fas fa-info-circle"></i> <kbd>Ctrl</kbd> + <kbd>1</kbd> … <kbd>5</kbd> — Быстрый переход на бинды рации сайта.</p>
+          <p><i class="fas fa-keyboard"></i> Для ввода текста в игре деактивируйте пульт кнопкой выше.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
