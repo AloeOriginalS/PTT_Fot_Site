@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "electron-log": "^5.0.0",
-    "firebase": "^12.14.0"
+    "firebase": "^12.14.0",
+    "uiohook-napi": "^1.5.5"
   },
   "build": {
     "appId": "com.sarmat.radiopult",
